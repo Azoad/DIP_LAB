@@ -1,0 +1,10 @@
+I = imread('bricks.jpg');
+subplot(1,2,1),imshow(I);
+I2 = edge(rgb2gray(I),'canny');
+subplot(1,2,2),imshow(I2);
+C = makecform('srgb2lab');
+lab = applycform(I,C);
+B = lab(:,:,3);
+R = lab(:,:,1);
+Ib = edge(B,'canny');
+figure,imshow(R);

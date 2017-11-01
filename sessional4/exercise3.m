@@ -1,0 +1,16 @@
+I = imread('coins.png');
+imshow(I),title('coins.png');
+Ibin = im2bw(I);
+figure,imshow(Ibin),title('binary');
+Ifill = imfill(Ibin,'holes');
+figure,imshow(Ifill),title('hole filled');
+[L,N] = bwlabel(Ifill);
+figure,imshow(label2rgb(L)),title('colored');
+fprintf('total number of coins in coins.png image is %i.\n',N);
+I2 = imread('GLUCOSE.tif');
+figure,imshow(I2),title('GLICOSE.tif');
+Ibin2 = im2bw(I2);
+figure,imshow(Ibin2),title('Binary');
+[L2,N2] = bwlabel(~Ibin2);
+figure,imshow(label2rgb(L2)),figure('Colored');
+fprintf('total number of atoms in the image of the glucose molecule is %i.\n',N2);

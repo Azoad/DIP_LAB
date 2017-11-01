@@ -1,0 +1,12 @@
+I = imread('miranda.tif');
+subplot(2,3,1),imshow(I),title('Original');
+In = imnoise(I,'poisson');
+subplot(2,3,2),imshow(In),title('Noisy');
+Im = medfilt_th(In,3,0);
+subplot(2,3,3),imshow(Im),title('3x3 and 0');
+Im = medfilt_th(In,3,.1);
+subplot(2,3,4),imshow(Im),title('3x3 and .1');
+Im = medfilt_th(In,3,.25);
+subplot(2,3,5),imshow(Im),title('3x3 and .25');
+Im = medfilt_th(In,3,.5);
+subplot(2,3,6),imshow(Im),title('3x3 and .5');
