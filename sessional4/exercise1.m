@@ -17,18 +17,16 @@ In = ~Ib;
 % filtering the image so that only the biggest object remain
 bw = bwareafilt(In,1);
 figure,imshow(bw),title('mask image of the lake');
-
+% counting the total number of white pixels in the image
+numpixels1 = regionprops(bw,'Area');
+% can also be done with sum(bw(:))
 % taking the given dimensions in variables
 xkm = 6.901;
 ykm = 5.258;
 % getting size of the image
 [x y] = size(bw);
-% counting the total number of white pixels in the image
-numpixels1 = regionprops(bw,'Area');
-% can also be done with sum(bw(:))
 %calculating area
 area = ((xkm*ykm)/(x*y))*numpixels1.Area;
-
 %detecting edge/perimeter of the lake
 Ic = edge(bw,'canny');
 figure,imshow(Ic),title('showing perimeter of the lake');

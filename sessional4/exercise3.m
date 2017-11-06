@@ -11,6 +11,7 @@ I2 = imread('GLUCOSE.tif');
 figure,imshow(I2),title('GLICOSE.tif');
 Ibin2 = im2bw(I2);
 figure,imshow(Ibin2),title('Binary');
+figure,imshow(~Ibin2),title('Inverted');
 [L2,N2] = bwlabel(~Ibin2);
-figure,imshow(label2rgb(L2)),figure('Colored');
+figure,imshow(label2rgb(L2)),title('colored');
 fprintf('total number of atoms in the image of the glucose molecule is %i.\n',N2);
